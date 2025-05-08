@@ -1,7 +1,7 @@
 #Build Stage Start
 
 #Specify a base image
-FROM node:alpine as builder 
+FROM node:16.13.0 as builder
 
 #Specify a working directory
 WORKDIR '/app'
@@ -16,7 +16,7 @@ RUN npm install
 COPY . .
 
 #Build the project for production
-RUN npm run build 
+RUN npm run build
 
 #Run Stage Start
 FROM nginx
